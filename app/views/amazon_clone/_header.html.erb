@@ -1,0 +1,69 @@
+
+
+<div class="header">
+    <%= link_to root_path do %>
+        <%= image_tag 'amazon_logo.png', alt: "amazon_logo", id: "a_logo" %>
+    <% end %>
+    <div id = "text1">
+        <%= link_to 'Deliver to', "#", id: "loc" %>
+        <p id="icon">
+            <i class="fa-solid fa-location-dot"></i>
+            <span id="Ind">India</span>
+        </p>
+    </div>
+   <div class="search-sec">
+                <!-- Search form-->
+
+        <%= form_with url: products_path, method: :get do |form|%>
+            <div class="search">
+                <%= form.select :categories, options_for_select(["All"]), class: "drop-down" %>
+                <%= form.text_field :query,placeholder: "Search Amazon", id: "input-box" %>
+                <button type="submit" class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        <% end %>
+   </div>
+
+   <div class="lng">
+        <%= image_tag 'f-icon.png', id: "f-icon" %>
+        <p id="en">EN</p>
+   </div>
+
+    <div class="s-in">
+        <%#= link_to 'Hello,Sign in',"#", id: "s" %>
+        <%= link_to 'Hello,Sign in',"#", id: "load-form", id: "s" %>
+        <%= link_to 'Accounts & Lists',"#", id: "A-l" %>
+    </div>
+
+    <div class="return">
+        <%= link_to 'Returns', "#", id: "ret" %>
+        <%= link_to '& Orders', "#", id: "ord" %>
+    </div>
+    
+    <div class="cart">
+        <%#= link_to image_tag()'text', path %>
+        <%= link_to 'Cart', "#", id: "cart" %>
+    </div>
+</div>
+
+<div class="panel">
+
+    <div class="menu">
+        <%= link_to "#", class:"Menu-link" do %>
+            <i class="fa-solid fa-bars"></i>
+            <span id = "m-all">All</span>  
+        <% end %>
+
+    </div>
+    <div class="panel-opts">
+        <%= link_to 'Todays Deal', "#", class: "opts"%>
+        <%= link_to 'Customer Service', "#", class: "opts"%>
+        <%= link_to 'Registry', "#", class: "opts" %>
+        <%= link_to 'Gift cards', "#", class: "opts" %>
+        <%= link_to 'Sell', "#", class: "opts" %>
+    </div>
+
+</div>
+
+

@@ -4,20 +4,28 @@
     <title><%= content_for(:title) || "Amazone Clone" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= yield :head %>
-
+    
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <%= stylesheet_link_tag "application.css",media: "all" %>
+    <%= stylesheet_link_tag 'hero.css' %>
+    <%= stylesheet_link_tag 'header.css' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
 
   <body>
+    <%= render 'amazon_clone/header' %>
+    <%= render 'amazon_clone/hero' %>
+    <%= render 'amazon_clone/footer' %>
+    
     <%= yield %>
   </body>
 </html>

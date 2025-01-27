@@ -1,0 +1,38 @@
+ <%= form_with url: users_path, method: :get do |form|%>
+                <h1 id = "f-h1">Sign in</h1>
+            <div class="label1">
+                <%= form.label :email, 'Email or mobile phone number', id: "s-label" %>
+                <%= form.text_field :email_or_phone, placeholder: "Search Amazon", id: "input-box" %>
+                <button class="button">Continue</button>
+            </div>
+            
+            <%= link_to 'By continuing, you agree to Amazons Conditions of Use and Privacy Notice.', "#" %>
+            <%= link_to 'Need help?', "#",class: "help" %>
+            <div class="base">
+            <div id = "l1">Buying for work?</div>
+            <span id = "l2">Shop on Amazon Business</span>
+        </div>
+    </div>
+</div>
+
+<div class="divider"><p>New to Amazon?</p></div>
+<div class="div">
+<%= link_to ' Create your Amazon account', "#" %> 
+   
+
+</div>
+</form>
+<hr style="border-top:1px solid rgba(128, 128, 128, 0.32) ;">
+<div class = "footer">
+    <div class="f1">
+        <%= link_to 'Conditions of Use', "#" %> 
+        <%= link_to 'Privacy Notice', "#" %>
+        <%= link_to 'Help', "#" %> 
+    </div>
+    <div class="f2">
+        <span>© 1996-2025, Amazon.com, Inc. or its affiliates</span>
+    </div>
+</div>
+
+
+        <% end %>
