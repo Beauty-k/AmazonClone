@@ -1,0 +1,205 @@
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+}
+.side-menu{
+   
+}
+hr{
+    width: 350px;
+    opacity: 0.5;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.m-header{
+    height: 50px;
+    width: 365px;
+    background-color:#232F3E ;
+    color: #fff;
+   
+}
+
+.content{
+    width: 365px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+.foot{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 40px;
+    
+}
+.set{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+#user-icon{
+    height: 25px ;
+    width: 27px;
+    padding: 10px;
+    
+}
+#arrow-icon{
+    height: 14px;
+    width: 14px;
+    opacity: 0.5;
+    margin-right: 30px;
+}
+#arrow-icon:hover{
+    opacity: 1;
+}
+#link{
+    text-decoration: none;
+    color: black;
+}
+.m-si{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+    color: #fff;
+    
+}
+.s-i-link{
+    text-decoration: none;
+}
+#f-i{
+    height: 18px;
+    width: 18px;
+}
+.items{
+    margin-top: 30px;
+}
+.items h2{
+    margin-left: 40px;
+}
+#globe{
+    height: 13px;
+    width: 14px;
+    opacity: 0.5;
+}
+</style>
+
+<div class="side-menu">
+    <div class="m-header">
+            <%= link_to render_form_path, class: "s-i-link" do %>
+                <div class="m-si">
+                    <%= image_tag 'user (2).png',id: "user-icon"  %>
+                    <h2>Hello, sign in</h2>
+                </div>
+            <% end %>
+
+    </div>
+    <div class="items">
+        <div class="item1">
+            <h2>Digital Content & Devices</h2>
+            <div class="content">
+                <%= link_to 'Amazon Music', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+
+            <div class="content">
+                <%= link_to 'Kindle E-readers & Books', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+            <div class="content">
+                <%= link_to 'Amazon Appstore', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+            
+        </div>
+        <hr>
+        <div class="item2">
+            <h2>Shop by Department</h2>
+            <div class="content">
+                <%= link_to 'Electronics', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+
+            <div class="content">
+                <%= link_to 'Computers', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon"%>
+            </div>
+            <div class="content">
+                <%= link_to 'Smart Home', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+            
+            <div class="content">
+                <%= link_to 'Arts & Crafts', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+
+            <div class="foot">
+                <%= link_to 'See all', "#", id: "link" %>
+                <%= image_tag 'arrow-down.png',id: "arrow-icon" %>
+            </div>
+
+        </div>
+        <hr>
+        <div class="item3">
+            <h2>Programs & Features</h2>
+            <div class="content">
+                <%= link_to 'Gift Cards', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+
+            <div class="content">
+                <%= link_to 'Shop by Interest', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+            <div class="content">
+                <%= link_to 'Amazon Live', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+            
+            <div class="content">
+                <%= link_to 'International Shopping', "#", id: "link" %>
+                <%= image_tag 'right-arrow.png',id: "arrow-icon" %>
+            </div>
+
+            <div class="foot">
+                <%= link_to 'See all', "#", id: "link" %>
+                <%= image_tag 'down-arrow',id: "arrow-icon" %>
+            </div>
+        </div>
+        <hr>
+        <div class="item3">
+            <h2>Help & Settings</h2>
+            <div class="set">
+                <%= link_to 'Your Account', "#", id: "link" %>
+                
+            </div>
+
+            <div class="set">
+                <%= image_tag 'globe.png', id: "globe" %>
+                <%= link_to 'English', "#", id: "link" %>
+            </div>
+            <div class="set">
+                <%= image_tag 'f-icon.png', id: "f-i" %>
+                <%= link_to 'United States', "#", id: "link" %>
+            </div>
+            
+            <div class="set">
+                <%= link_to 'Customer Service', "#", id: "link" %>
+            </div>
+
+            <div class="set">
+                <%= link_to 'Sign in', "#", id: "link" %>
+            </div>
+        </div>
+
+    </div>
+</div>

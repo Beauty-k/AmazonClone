@@ -13,19 +13,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <%= stylesheet_link_tag "application.css",media: "all" %>
-    <%= stylesheet_link_tag 'hero.css' %>
-    <%= stylesheet_link_tag 'header.css' %>
+  <link rel="stylesheet" href="menu.css">
+    <%= stylesheet_link_tag "application",media: "all" %>
+    <%= stylesheet_link_tag 'hero' %>
+    <%= stylesheet_link_tag 'footer.css' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
 
-  <body>
     <%= render 'amazon_clone/header' %>
     <%= render 'amazon_clone/hero' %>
     <%= render 'amazon_clone/footer' %>
+    <%= render 'amazon_clone/menu' %>
+  <body>
     
+    <% if session[:user_id] %>
+        <p>Welcome, <%= User.find(session[:user_id]).name %>!</p>
+        <%= link_to "Logout", logout_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

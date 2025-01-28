@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  # devise_for :users
+  get "menu/render_partial"
   resources :products
-  resources :users
+  resources :sessions
+  resources :registrations
+
   get "amazon_clone/index"
   get 'render_form', to: 'amazon_clone#render_form'
+  get 'render_signup', to: 'amazon_clone#render_signup'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,5 +20,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
+  get '/render_partial', to: 'menu#render_partial'
+  get '/render_form', to: 'amazon_clone#render_form'
+  post '/registrations', to: 'registrations#new'
+  post '/registrations', to: 'registrations#create'
+  post '/sessions', to: 'sessions#create'
   root "amazon_clone#index"
+  # root "menu#render_partial"
+
+
 end

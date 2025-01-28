@@ -1,15 +1,15 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
-import 'bootstrap'
-import 'jquery'
-// import "slick-carousel";
-// import 'nivo-slider';
-import "../stylesheets/application.scss";
+// import "@hotwired/turbo-rails"
+// import "controllers"
+// import 'bootstrap'
+// import 'jquery'
+// // import "slick-carousel";
+// // import 'nivo-slider';
+// import "../stylesheets/application.scss";
 
-$(document).on('turbolinks:load', function () {
-  $('#slider').nivoSlider();
-});
+// $(document).on('turbolinks:load', function () {
+//   $('#slider').nivoSlider();
+// });
 
 // const signInLink = document.querySelector(".s-in")
 // const formContainer = document.querySelector("")

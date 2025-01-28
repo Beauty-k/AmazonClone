@@ -4,14 +4,14 @@
         padding: 0;
         font-family: Arial, Helvetica, sans-serif;
     }
-    .sign-in-form{
+    .sign-up-form{
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 20px;
     }
     .header{
-        height: 40px;
+        height: 50px;
         width: 100%;
         display: flex;
         align-items: center;
@@ -20,7 +20,7 @@
     }
     #a-logo{
         height: 50px;
-        width: 160px;
+        width: 180px;
         object-fit: cover;
         padding: 10px;
     }
@@ -31,8 +31,8 @@
         border-radius: 5px;
     }
     .form{
-        height: 320px;
-        width: 300px;
+        height: 520px;
+        width: 320px;
         display: flex;
         flex-direction: column;
         border: 2px solid rgba(0, 0, 0, 0.144);
@@ -40,7 +40,7 @@
         padding: 20px 28px;
     }
 
-    #btn1{
+    #submit-button{
         text-decoration: none;
         height: 29px;
         width: 294px;
@@ -48,8 +48,11 @@
         background-color: rgb(255, 213, 0);
         border: 2px solid rgb(255, 213, 0);
         border-radius: 40px;
-        margin-top: 15px;
+        margin-top: 5px;
         margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     #f-h1{
         font-size: 28px;
@@ -81,48 +84,25 @@
         margin-top: 15px;
         margin-bottom: 20px;
     }
-    #help{
-        color: #007185;
-        font-size: 14px;
-        text-decoration: none;
-        margin-top: 15px;
-    }
+  
     .suggestion hr{
         width: 330px;
         opacity: 0.5;
         margin-top: 25px;
         margin-bottom: 15px;
     }
-    .for-new{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
-    .create-acc{
-        height: 29px;
-        width: 348px;
-        color: black;
-        padding: 0px 10px 0px 11px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid rgba(0, 0, 0, 0.447);
-        border-radius: 40px;
-        font-size: 13px;
-        font-weight: 530;
-        margin-bottom: 30px;
-    }
+    
+   #hr2{
+        width: 330px;
+        opacity: 0.5;
+        margin-top: 25px;
+        margin-bottom: 25px;
+   }
     #btn2{
         text-decoration: none;
         color: black;
     }
-    .create{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+   
     #l1{
         font-size: 14px;
         font-weight: 700;
@@ -156,51 +136,84 @@
         justify-content: center;
         font-size: 12px;
     }
-    .sign-up{
-        text-decoration: none;
-        color: black;
+    .user{
+        display: flex;
+        font-size: 14px;
     }
+    #login{
+        text-decoration: none;
+        color: #007185;
+    }
+    .input-area{
+        height: 30px;
+        width: 310px;
+        border: 0.5px solid rgba(0, 0, 0, 0.495);
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .label1{
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        color: #0f1111;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+  
 </style>
 
 <div class="header">
     <%= image_tag 'logo.png', id: "a-logo" %>
 </div>
-<div class="sign-in-form">
+<div class="sign-up-form">
 
     <div class="form">
-        <%= form_with url: sessions_path, method: :post, local: true do |form|%>
-                    <h1 id = "f-h1">Sign in</h1>
-                    <div class="label1">
-                        <%= form.label :login, 'Email or mobile phone number', id: "s-label" %>
-                        <%= form.text_field :login, id: "input-box" %>
-                        <%= form.submit "Continue", id: "btn1" %>
-                    </div>
+        <%= form_with url: registrations_path, method: :post, local: true do |form|%>
+            <h1 id = "f-h1">Create account</h1>
+            <div class="label1">
+                <%= form.label :Name, 'your Name' %>
+                <%= form.text_field :Name, class: "input-area" %>
+            </div>
+            <div class="label1">
+                <%= form.label :email, 'Mobile number or email' %>
+                <%= form.text_field :email, class: "input-area" %>
+            </div>
+
+            <div class="label1">
+                <%= form.label :password, 'Password' %>
+                <%= form.password_field :password, class: "input-area" %>
+            </div>
+
+            <div class="label1">
+                <%= form.label :password_confirmation, 'Re-enter password' %>
+                <%= form.password_field :password_confirmation, class: "input-area" %>
+            </div>
+            <div class="submit-button">
+                <%= form.submit "Continue", id: "submit-button" %>
+            </div>
+
         <% end %>
     
         <div class="suggestion">
                     <%= link_to 'By continuing, you agree to Amazons Conditions of Use and Privacy Notice.', "#", id: "terms" %>
                     <br>
-                    <br>
-                    <%= link_to 'Need help?', "#",id: "help" %>
+                    
                     <hr>
                     <div class="base">
                         <div id = "l1">Buying for work?</div>
-                            <span id = "l2">Shop on Amazon Business</span>
+                            <span id = "l2">Create a free business account</span>
                         </div>
                     </div>
+                    <hr id="hr2">
+
+            <div class="user">
+            <div>Already have an account?</div> 
+            <%= link_to 'Sign in', render_form_path, id: "login" %>
+            </div>
         </div>
     </div>
 
-    <div class="for-new"> 
-        <p> New to Amazon? </p> 
-    </div>
-<div class="create">
-    <div class="create-acc">
-        <%= link_to render_signup_path, class: "sign-up" do %>
-            <p id= "btn2"> Create your Amazon account </p> 
-        <% end %>
-    </div>
-</div>
     <hr style="border-top:1px solid rgba(128, 128, 128, 0.32) ;">
     <br>
     <div class = "footer">

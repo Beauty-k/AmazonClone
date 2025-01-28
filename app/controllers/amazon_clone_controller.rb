@@ -1,6 +1,6 @@
 class AmazonCloneController < ApplicationController
   # def index
-  #   @amazons = AmazonClone.all
+  #  
   # end
 
   # def create
@@ -11,15 +11,16 @@ class AmazonCloneController < ApplicationController
   # end
 
     def render_form
-      respond_to do|format|
-        format.html { render partial: "amazon_clone/signin" }
-        format.turbo_stream { render partial: "amazon_clone/signin" }
-      end
+      # respond_to do|format|
+      #   format.html { render partial: "amazon_clone/signin" }
+      #   format.turbo_stream { render partial: "amazon_clone/signin" }
+      # end
+      render partial: "amazon_clone/signin"
     end
 
-  private
+    def render_signup
+      render partial: "amazon_clone/signup"
+    end
 
-  # def amazon_clone_params
-  #   # params.require(:amazon).permit(:search)
-  # end
+  
 end
