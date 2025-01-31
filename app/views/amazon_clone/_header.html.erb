@@ -11,12 +11,33 @@
         font-weight: 700;
     }
     #a_logo{
-    height: 80px;
-    width: 140px;
-    padding: 20px 15px 15px;
-    object-fit: contain;
+        height: 55px;
+        width: 130px;
+        padding: 10px;
+        object-fit: contain;
+    }
+    .Border{
+        padding: 5px;
+    }
+    .Border:hover{
+        border: 1px solid white;
+    }
+
+    .drop-down{
+        height: 40px;
+        width: 51.6px;
+        border-top-left-radius:4px ;
+        border-bottom-left-radius: 4px;
+        background-color: #ced4da23;
+        color: #0f1111;
+        padding: 0px 0px 0px 5px;
+        border: none;
+        font-size: 14px; 
     
-}
+    }
+    .search:active{
+        border: 2px solid orange;
+    }   
 
 /* Panel Styling */
 
@@ -79,9 +100,9 @@
 
 <div class="header">
     
-    <%= image_tag 'amazon_logo.png', alt: "amazon_logo", id: "a_logo" %>
+    <%= image_tag 'amazon_logo.png', alt: "amazon_logo", id: "a_logo",class: "Border" %>
     
-    <div id = "text1">
+    <div id = "text1" class= "Border">
         <%= link_to 'Deliver to', "#", id: "loc" %>
         <p id="icon">
             <i class="fa-solid fa-location-dot"></i>
@@ -91,7 +112,7 @@
                 <!-- Search form-->
    <div class="search-sec">
 
-        <%= form_with url: products_path, method: :get do |form|%>
+        <%= form_with url: search_path, method: :get do |form|%>
             <div class="search">
                 <%= form.select :categories, options_for_select(["All"]), class: "drop-down" %>
                 <%= form.text_field :query,placeholder: "Search Amazon", id: "input-box" %>
@@ -102,12 +123,12 @@
         <% end %>
    </div>
 
-   <div class="lng">
+   <div class="lng Border">
         <%= image_tag 'f-icon.png', id: "f-icon" %>
         <p id="en">EN</p>
    </div>
 
-    <div class="s-L">
+    <div class="s-L Border">
         <%= link_to render_form_path, class: "s-rend" do %>
             <div class="s-in">
                 <span id="s">Hello,Sign in</span>
@@ -116,33 +137,32 @@
         <% end %>
     </div>
 
-    <div class="return">
+    <div class="return Border">
         <%= link_to 'Returns', "#", id: "ret" %>
         <%= link_to '& Orders', "#", id: "ord" %>
     </div>
     
-    <div class="cart">
+    <div class="cart Border">
         <%#= link_to image_tag()'text', path %>
         <i class="fa-solid fa-cart-shopping" id="c-i"></i>
-        <%= link_to 'Cart', "#", id: "cart" %>
+        <%= link_to "Cart(#{@cart.cart_items.sum(:quantity)})", cart_path(@cart), id: "cart" %>
     </div>
 </div>
 
 <div class="panel">
 
-    <div class="menu">
+    <div class="menu Border">
         <%= link_to render_partial_path, class:"Menu-link" do %>
-            <div class="render"></div>
             <i class="fa-solid fa-bars"></i>
             <span id = "m-all">All</span>  
         <% end %>
     </div>
 
     <div class="panel-opts">
-        <%= link_to 'Todays Deal', "#", class: "opts"%>
-        <%= link_to 'Customer Service', "#", class: "opts"%>
-        <%= link_to 'Registry', "#", class: "opts" %>
-        <%= link_to 'Gift cards', "#", class: "opts" %>
-        <%= link_to 'Sell', "#", class: "opts" %>
+        <%= link_to 'Todays Deal', "#", class: "opts Border"%>
+        <%= link_to 'Customer Service', "#", class: "opts Border"%>
+        <%= link_to 'Registry', "#", class: "opts Border" %>
+        <%= link_to 'Gift cards', "#", class: "opts Border" %>
+        <%= link_to 'Sell', "#", class: "opts Border" %>
     </div>
 </div>

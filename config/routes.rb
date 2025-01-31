@@ -1,12 +1,24 @@
 Rails.application.routes.draw do
-  get "menu/render_partial"
-  resources :products
-  resources :sessions
-  resources :registrations
+  get "users/new"
+  get 'signup', to: 'users#new'
 
+  devise_for :users
+  get "search/index"
+  get "product/index"
+  resource :session
+  resources :passwords, param: :token
+  get "carts/show"
+  resources :products, only: [:new, :show]
+  resources :sessions
+  resources :registrations, only: [:new, :create]
+  resources :customers
+  resources :carts, only: [:show]
+  
+  get "menu/render_partial"
   get "amazon_clone/index"
-  get 'render_form', to: 'amazon_clone#render_form'
   get 'render_signup', to: 'amazon_clone#render_signup'
+  get 'render_menu', to: 'registrations#render_menu'
+  get 'search', to: 'search#index', as: 'search'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -22,11 +34,8 @@ Rails.application.routes.draw do
 
   get '/render_partial', to: 'menu#render_partial'
   get '/render_form', to: 'amazon_clone#render_form'
-  post '/registrations', to: 'registrations#new'
-  post '/registrations', to: 'registrations#create'
+
   post '/sessions', to: 'sessions#create'
   root "amazon_clone#index"
-  # root "menu#render_partial"
-
-
+  
 end
