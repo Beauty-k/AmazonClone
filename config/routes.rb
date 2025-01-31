@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get "users/new"
   get 'signup', to: 'users#new'
 
-  devise_for :users
+  # devise_for :users
   get "search/index"
   get "product/index"
   resource :session
